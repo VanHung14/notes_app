@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -102,16 +103,21 @@ public class signup extends AppCompatActivity {
     //send email verification
     private void sendEmailVerification()
     {
-        FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
+        final FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
         if(firebaseUser!=null)
         {
             firebaseUser.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
-                    Toast.makeText(getApplicationContext(),"Verification Email is Sent,Verify and Log In Again",Toast.LENGTH_SHORT).show();
-                    firebaseAuth.signOut();
-                    finish();
-                    startActivity(new Intent(signup.this,MainActivity.class));
+                    if(task.isSuccessful()){
+                        Toast.makeText(getApplicationContext(),"Verification Email is Sent,Verify and Log In Again",Toast.LENGTH_SHORT).show();
+                        firebaseAuth.signOut();
+                        finish();
+                        startActivity(new Intent(signup.this,MainActivity.class));
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(),"Can't send email verification.",Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
         }
