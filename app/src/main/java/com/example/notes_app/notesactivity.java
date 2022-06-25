@@ -40,6 +40,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
@@ -52,7 +53,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class notesactivity extends AppCompatActivity {
+public class notesactivity<NoteViewHolder> extends AppCompatActivity {
 
     FloatingActionButton mcreatenotesfab;
     private FirebaseAuth firebaseAuth;
@@ -341,7 +342,7 @@ public class notesactivity extends AppCompatActivity {
 //            Animation translate_anim = AnimationUtils.loadAnimation(itemView.getContext(), R.anim.translate_anim);
 //            mnote.setAnimation(translate_anim);
 //        }
-//    }
+    }
 //
 //
 //
@@ -384,6 +385,7 @@ public class notesactivity extends AppCompatActivity {
 //    }
 //
 //
+
 //    private int getRandomColor()
 //    {
 //        List<Integer> colorcode=new ArrayList<>();
@@ -430,3 +432,25 @@ public class notesactivity extends AppCompatActivity {
         }
     }
 }
+
+//    private int getRandomColor() {
+//    List<Integer> colorcode=new ArrayList<>();
+//    colorcode.add(R.color.gray);
+//    colorcode.add(R.color.pink);
+//    colorcode.add(R.color.lightgreen);
+//    colorcode.add(R.color.skyblue);
+//    colorcode.add(R.color.color1);
+//    colorcode.add(R.color.color2);
+//    colorcode.add(R.color.color3);
+//
+//    colorcode.add(R.color.color4);
+//    colorcode.add(R.color.color5);
+//    colorcode.add(R.color.green);
+//
+//    Random random=new Random();
+//    int number=random.nextInt(colorcode.size());
+//    return colorcode.get(number);
+//    }
+}
+
+
