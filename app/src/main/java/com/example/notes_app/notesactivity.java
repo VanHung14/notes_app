@@ -33,6 +33,8 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -64,7 +66,7 @@ public class notesactivity<NoteViewHolder> extends AppCompatActivity {
     FirebaseUser firebaseUser;
     FirebaseFirestore firebaseFirestore;
 
-//    FirestoreRecyclerAdapter<firebasemodel,NoteViewHolder> noteAdapter;
+    FirestoreRecyclerAdapter<firebasemodel,NoteViewHolder> noteAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,10 +91,34 @@ public class notesactivity<NoteViewHolder> extends AppCompatActivity {
         });
 
 
-//        Query query=firebaseFirestore.collection("notes").document(firebaseUser.getUid()).collection("myNotes").orderBy("title",Query.Direction.ASCENDING);
-//
-//        FirestoreRecyclerOptions<firebasemodel> allusernotes= new FirestoreRecyclerOptions.Builder<firebasemodel>().setQuery(query,firebasemodel.class).build();
-//
+        Query query=firebaseFirestore.collection("notes").
+                document(firebaseUser.getUid()).collection("myNotes")
+                .orderBy("title",Query.Direction.ASCENDING);
+
+        FirestoreRecyclerOptions<firebasemodel> allUserNotes
+                = new FirestoreRecyclerOptions.Builder<firebasemodel>()
+                .setQuery(query,firebasemodel.class).build();
+        noteAdapter = new FirestoreRecyclerAdapter<firebasemodel, NoteViewHolder>(allUserNotes) {
+            @Override
+            protected void onBindViewHolder(@NonNull NoteViewHolder holder, int position, @NonNull firebasemodel model) {
+                holder.notetitle.setText(model.getTitle());
+                holder.notecontent.setText(model.getContent());
+            }
+
+            @NonNull
+            @Override
+            public NoteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.note_layout, parent, false);
+                return new NoteViewHolder(view);
+            }
+        };
+        mrecyclerview = findViewById(R.id.recyclerview);
+        mrecyclerview.setHasFixedSize(true);
+        staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        mrecyclerview.setLayoutManager(staggeredGridLayoutManager);
+        mrecyclerview.setAdapter(noteAdapter);
+
+        //
 //        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
 //                Manifest.permission.READ_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
 //
@@ -359,6 +385,54 @@ public class notesactivity<NoteViewHolder> extends AppCompatActivity {
 //    }
 //
 //
+
+//    private int getRandomColor()
+//    {
+//        List<Integer> colorcode=new ArrayList<>();
+//        colorcode.add(R.color.gray);
+//        colorcode.add(R.color.pink);
+//        colorcode.add(R.color.lightgreen);
+//        colorcode.add(R.color.skyblue);
+//        colorcode.add(R.color.color1);
+//        colorcode.add(R.color.color2);
+//        colorcode.add(R.color.color3);
+//
+//        colorcode.add(R.color.color4);
+//        colorcode.add(R.color.color5);
+//        colorcode.add(R.color.green);
+//
+//        Random random=new Random();
+//        int number=random.nextInt(colorcode.size());
+//        return colorcode.get(number);
+    }
+    public class NoteViewHolder extends RecyclerView.ViewHolder{
+        private TextView notetitle;
+        private TextView notecontent;
+        LinearLayout mnote;
+
+        public NoteViewHolder(@NonNull View itemView) {
+            super(itemView);
+            notetitle = itemView.findViewById(R.id.notetitle);
+            notecontent = itemView.findViewById(R.id.notecontent);
+
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        noteAdapter.startListening();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(noteAdapter != null){
+            noteAdapter.startListening();
+        }
+    }
+}
+
 //    private int getRandomColor() {
 //    List<Integer> colorcode=new ArrayList<>();
 //    colorcode.add(R.color.gray);
@@ -378,4 +452,5 @@ public class notesactivity<NoteViewHolder> extends AppCompatActivity {
 //    return colorcode.get(number);
 //    }
 }
+
 
