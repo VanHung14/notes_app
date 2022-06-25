@@ -51,7 +51,7 @@
         android:layout_marginRight="30dp"
         android:layout_marginBottom="30dp"
         android:background="#A1F4FB"
-        android:src="@drawable/edit"
+        android:src="@drawable/ic_baseline_edit_24"
         app:maxImageSize="56dp"
 
         tools:ignore="SpeakableTextPresentCheck">
