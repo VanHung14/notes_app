@@ -25,16 +25,16 @@
     </androidx.appcompat.widget.Toolbar>
 
     <EditText
+        android:id="@+id/editcontentofnote"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="15sp"
+        android:layout_below="@id/toolbarofeditnote"
         android:background="#faf7f7"
         android:gravity="top|left"
-        android:textColor="@color/black"
         android:hint="Enter your note content here"
-        android:layout_below="@id/toolbarofeditnote"
         android:padding="15dp"
-        android:id="@+id/editcontentofnote">
+        android:textColor="@color/black"
+        android:textSize="15sp">
 
     </EditText>
 
@@ -50,8 +50,8 @@
         android:layout_marginRight="30dp"
         android:layout_marginBottom="30dp"
         android:background="#A1F4FB"
-        android:src="@drawable/ic_baseline_edit_24"
-        app:maxImageSize="36dp"
+        android:src="@drawable/ic_baseline_arrow_circle_up_24"
+        app:maxImageSize="65dp"
 
         tools:ignore="SpeakableTextPresentCheck">
 
