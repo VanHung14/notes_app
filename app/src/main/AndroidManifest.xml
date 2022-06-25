@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Notes_app">
         <activity
+            android:name=".notedetails"
+            android:exported="false" />
+        <activity
+            android:name=".editnoteactivity"
+            android:exported="false" />
+        <activity
             android:name=".createnote"
             android:exported="false" />
         <activity
