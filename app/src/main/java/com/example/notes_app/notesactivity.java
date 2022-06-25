@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -23,7 +22,6 @@ import android.os.Environment;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -319,6 +317,30 @@ public class notesactivity extends AppCompatActivity {
 //    }
 //
 //
+//
+//
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//
+//        getMenuInflater().inflate(R.menu.menu,menu);
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//
+//        switch (item.getItemId())
+//        {
+//            case R.id.logout:
+//                firebaseAuth.signOut();
+//                finish();
+//                startActivity(new Intent(notesactivity.this,MainActivity.class));
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
+//
+//
 //    @Override
 //    protected void onStart() {
 //        super.onStart();
@@ -354,28 +376,4 @@ public class notesactivity extends AppCompatActivity {
 //        int number=random.nextInt(colorcode.size());
 //        return colorcode.get(number);
     }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.menu,menu);
-        return true;
-    }
-
-    @SuppressLint("NonConstantResourceId")
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
-        switch (item.getItemId())
-        {
-            case R.id.logout:
-                firebaseAuth.signOut();
-                finish();
-                startActivity(new Intent(notesactivity.this,MainActivity.class));
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
 }
