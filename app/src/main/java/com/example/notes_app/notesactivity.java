@@ -97,27 +97,27 @@ public class notesactivity extends AppCompatActivity {
         FirestoreRecyclerOptions<firebasemodel> allUserNotes
                 = new FirestoreRecyclerOptions.Builder<firebasemodel>()
                 .setQuery(query,firebasemodel.class).build();
-        noteAdapter = new FirestoreRecyclerAdapter<firebasemodel, NoteViewHolder>(allUserNotes) {
-            @Override
-            protected void onBindViewHolder(@NonNull NoteViewHolder holder, int position, @NonNull firebasemodel model) {
-                holder.notetitle.setText(model.getTitle());
-                holder.notecontent.setText(model.getContent());
-            }
 
-            @NonNull
-            @Override
-            public NoteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.note_layout, parent, false);
-                return new NoteViewHolder(view);
-            }
-        };
-        mrecyclerview = findViewById(R.id.recyclerview);
-        mrecyclerview.setHasFixedSize(true);
-        staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-        mrecyclerview.setLayoutManager(staggeredGridLayoutManager);
-        mrecyclerview.setAdapter(noteAdapter);
+//        noteAdapter = new FirestoreRecyclerAdapter<firebasemodel, NoteViewHolder>(allUserNotes) {
+//            @Override
+//            protected void onBindViewHolder(@NonNull NoteViewHolder holder, int position, @NonNull firebasemodel model) {
+//                holder.notetitle.setText(model.getTitle());
+//                holder.notecontent.setText(model.getContent());
+//            }
+//
+//            @NonNull
+//            @Override
+//            public NoteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+//                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.note_layout, parent, false);
+//                return new NoteViewHolder(view);
+//            }
+//        };
+//        mrecyclerview = findViewById(R.id.recyclerview);
+//        mrecyclerview.setHasFixedSize(true);
+//        staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+//        mrecyclerview.setLayoutManager(staggeredGridLayoutManager);
+//        mrecyclerview.setAdapter(noteAdapter);
 
-        //
 //        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
 //                Manifest.permission.READ_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
 //
