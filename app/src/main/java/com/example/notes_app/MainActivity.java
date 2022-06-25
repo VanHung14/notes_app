@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         if(firebaseUser!=null)
         {
             finish();
-            startActivity(new Intent(MainActivity.this,signup.class));
+            startActivity(new Intent(MainActivity.this,notesactivity.class));
         }
 
         mgotosignup.setOnClickListener(new View.OnClickListener() {
