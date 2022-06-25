@@ -27,16 +27,16 @@
     </androidx.appcompat.widget.Toolbar>
 
     <EditText
+        android:id="@+id/createcontentofnote"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="15sp"
+        android:layout_below="@id/toolbarofcreatenote"
         android:background="#faf7f7"
         android:gravity="top|left"
-        android:textColor="@color/black"
         android:hint="Enter your note content here"
-        android:layout_below="@id/toolbarofcreatenote"
         android:padding="15dp"
-        android:id="@+id/createcontentofnote">
+        android:textColor="@color/black"
+        android:textSize="15sp">
 
     </EditText>
 
