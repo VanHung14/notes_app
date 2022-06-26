@@ -30,7 +30,6 @@ public class createnote extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseUser firebaseUser;
     FirebaseFirestore firebaseFirestore;
-    ProgressBar mprogressbarofcreatenote;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +56,6 @@ public class createnote extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "both of fied are require", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    mprogressbarofcreatenote.setVisibility(View.VISIBLE);
                     DocumentReference documentReference = firebaseFirestore.collection("notes").
                             document(firebaseUser.getUid()).collection("myNotes").document();
                     Map<String, Object> note = new HashMap<>();
