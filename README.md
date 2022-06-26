@@ -1,6 +1,6 @@
 # Notes App With Firebase Database in Android Studio
 Phân chia công việc:
-- Nguyễn Hữu Dinh: design UI, tạo figma.
+- Nguyễn Hữu Dinh: design UI, tạo figma, tạo layout
 - Đinh Văn Hùng: Xử lý chức năng đăng ký, đăng nhập, kết nối firebase.
 - Đào Danh Thái: tạo Database, xử lý sửa note, đăng xuất
 - Trần Long Duy: xử lý tạo note mới, view note ra giao diện.
