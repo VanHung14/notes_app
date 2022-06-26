@@ -64,13 +64,13 @@ public class createnote extends AppCompatActivity {
                     documentReference.set(note).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
-                            Toast.makeText(getApplicationContext(), "note create successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Note create successfully", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(createnote.this, notesactivity.class));
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(getApplicationContext(), "failed to create note", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Failed to create note", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(createnote.this, notesactivity.class));
                         }
                     });

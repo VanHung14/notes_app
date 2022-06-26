@@ -34,7 +34,7 @@ public class forgotpassword extends AppCompatActivity {
         mpasswordrecoverbutton=findViewById(R.id.passwordrecoverbutton);
         mgobacktologin=findViewById(R.id.gobacktologin);
 
-//        firebaseAuth= FirebaseAuth.getInstance();
+        firebaseAuth= FirebaseAuth.getInstance();
 
 
         mgobacktologin.setOnClickListener(new View.OnClickListener() {

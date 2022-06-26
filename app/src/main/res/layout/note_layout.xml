@@ -26,7 +26,6 @@
             android:orientation="horizontal">
 
         <TextView
-            android:background="@color/teal_700"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/notetitle"
@@ -49,7 +48,6 @@
             </ImageView>
         </LinearLayout>
         <TextView
-            android:background="@color/teal_200"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
