@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f9f9f9"
+    android:background="@drawable/note"
+
     tools:context=".MainActivity">
 
 
@@ -30,20 +31,21 @@
 
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:layout_width="316dp"
+        android:layout_height="112dp"
         android:layout_above="@id/centerline"
-        android:layout_marginBottom="150dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="133dp"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Welcome Back !"
+            android:text="Notes app"
+            android:textAlignment="center"
+            android:textColor="#F44336"
             android:textSize="42sp"
-            android:textColor="#FFBD4D"
             android:textStyle="bold">
 
         </TextView>
@@ -51,14 +53,14 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Log In To Continue"
-            android:textSize="23sp"
-            android:textColor="#FF8596">
+            android:text="Log in to write your note"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="23sp">
 
         </TextView>
 
     </LinearLayout>
-
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -76,6 +78,7 @@
             android:layout_height="wrap_content"
             android:hint="Enter Your Email"
             android:inputType="textEmailAddress"
+            android:background="@color/white"
             tools:ignore="SpeakableTextPresentCheck">
 
         </EditText>
@@ -98,33 +101,32 @@
             android:layout_height="wrap_content"
             android:hint="Enter Your Password"
             android:inputType="textPassword"
+            android:background="@color/white"
             tools:ignore="SpeakableTextPresentCheck">
 
         </EditText>
     </com.google.android.material.textfield.TextInputLayout>
 
 
-
     <RelativeLayout
+        android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/button_design"
         android:layout_below="@id/password"
-        android:id="@+id/login">
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/button_design">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:layout_marginStart="8dp"
-            android:textSize="16sp"
-            android:text="Log In"
             android:layout_centerInParent="true"
+            android:layout_marginStart="8dp"
+            android:text="Log In"
             android:textColor="@color/white"
-            ></TextView>
+            android:textSize="16sp"
+            android:textStyle="bold"></TextView>
 
     </RelativeLayout>
 

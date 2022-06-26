@@ -201,6 +201,27 @@ public class notesactivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId())
+        {
+            case R.id.logout:
+                firebaseAuth.signOut();
+                finish();
+                startActivity(new Intent(notesactivity.this,MainActivity.class));
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 
 
     @Override
