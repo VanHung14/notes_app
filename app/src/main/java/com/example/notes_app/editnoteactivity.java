@@ -68,7 +68,9 @@ public class editnoteactivity extends AppCompatActivity {
                 }
                 else
                 {
-                    DocumentReference documentReference=firebaseFirestore.collection("notes").document(firebaseUser.getUid()).collection("myNotes").document(data.getStringExtra("noteId"));
+                    DocumentReference documentReference=firebaseFirestore.collection("notes")
+                            .document(firebaseUser.getUid()).collection("myNotes")
+                            .document(data.getStringExtra("noteId"));
                     Map<String,Object> note=new HashMap<>();
                     note.put("title",newtitle);
                     note.put("content",newcontent);
