@@ -36,7 +36,6 @@ public class forgotpassword extends AppCompatActivity {
 
         firebaseAuth= FirebaseAuth.getInstance();
 
-
         mgobacktologin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,14 +55,12 @@ public class forgotpassword extends AppCompatActivity {
                 else
                 {
                     //we have to send password recover email
-
                     firebaseAuth.sendPasswordResetEmail(mail).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-
                             if (task.isSuccessful())
                             {
-                                Toast.makeText(getApplicationContext(),"Mail Sent , You can recover your password using mail",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(),"Mail Sent, You can recover your password using mail",Toast.LENGTH_SHORT).show();
                                 finish();
                                 startActivity(new Intent(forgotpassword.this,MainActivity.class));
                             }
@@ -71,11 +68,8 @@ public class forgotpassword extends AppCompatActivity {
                             {
                                 Toast.makeText(getApplicationContext(),"Email is Wrong or Account Not Exist",Toast.LENGTH_SHORT).show();
                             }
-
-
                         }
                     });
-
                 }
             }
         });
