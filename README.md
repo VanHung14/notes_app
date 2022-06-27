@@ -1,13 +1,7 @@
 # Notes App With Firebase Database in Android Studio
-Phân chia công việc:
-- Nguyễn Hữu Dinh: design UI, tạo figma, tạo layout
-- Đinh Văn Hùng: Xử lý chức năng đăng ký, đăng nhập, kết nối firebase.
-- Đào Danh Thái: tạo Database, xử lý sửa note, đăng xuất
-- Trần Long Duy: xử lý tạo note mới, view note ra giao diện.
-- Lê Đình San: design UI, xử lý lấy lại mật khẩu.
 
 Ứng dụng được viết bằng Java, giao diện tạo bằng file layout xml, sử dụng firebase để lưu trữ dữ liệu ghi chú bằng realtime database, authentication.
-Xây dựng ứng dụng ghi chú với các chức năng cơ bản sau:
+Xây dựng ứng dụng ghi chú với các chức năng cơ bản sau:Cancel changes
 1. Đăng ký người dùng bằng email ( xác thực email bằng phương thức sendEmailVerification() của firebase, mail verification sẽ được gửi đến email đăng ký, sau khi xác nhận mail mới đăng nhập được).
 
 ![image](https://user-images.githubusercontent.com/79967686/175825513-d43ef106-6bd4-49f3-ae4a-e98b66ff37c4.png)
